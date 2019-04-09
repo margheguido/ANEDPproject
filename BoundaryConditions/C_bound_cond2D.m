@@ -29,7 +29,7 @@ u_g = sparse(ndof,1);
 boundary_points = femregion.boundary_points;
 x = femregion.dof(boundary_points,1);
 y = femregion.dof(boundary_points,2);
-u_g(boundary_points) = eval(Dati.exact_sol); % Compute the lifting operator ug
+u_g(boundary_points) = eval(Dati.g); % Compute the lifting operator ug
 
 x_g = sparse(ndof,1);
 A_0 = A;
