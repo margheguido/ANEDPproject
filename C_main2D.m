@@ -1,4 +1,4 @@
-function [errors,solutions,femregion,Dati,Peclet]=C_main2D(TestName,nRef,Stab)
+function [errors,solutions,femregion,Dati,Peclet]=C_main2D(TestName,nRef,Stab,mu)
 %==========================================================================
 % Solution of the Poisson's problem with linear finite elements
 % (non homogeneous Dirichlet boundary conditions)
@@ -36,6 +36,7 @@ addpath Postprocessing
 
 Dati = C_dati(TestName,Stab);
 Dati.nRefinement = nRef;
+Dati.mu=mu;
 
 %==========================================================================
 % MESH GENERATION
