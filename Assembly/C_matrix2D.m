@@ -56,15 +56,15 @@ for ie = 1 : ne
     % STIFFNESS MATRIX
     %=============================================================%
     % SUPG stabilization parameter
-    tau_SUPG = calculate_tau_SUPG( femregion, pphys_2D, Dati );
-    Peclet(ie) = calculate_Peclet( femregion, Dati, pphys_2D );
     
+    Peclet(ie) = calculate_Peclet( femregion, Dati, pphys_2D );
+    tau_SUPG = calculate_tau_SUPG( femregion, pphys_2D, Dati,Peclet(ie) );
     
     % Local stiffness matrix 
     [ A_diff ] = C_A_diff_2D( BJ, w_2D, Grad, nln );
     [ A_reac ] = C_A_reac_2D( BJ, w_2D, dphiq, nln );
     [ A_adv ] = C_A_adv_2D( BJ, w_2D, pphys_2D, Grad, dphiq, nln, Dati );
-    [ A_SUPG ] = C_A_SUPG_2D( BJ, w_2D, pphys_2D, Grad, nln, Dati ,Peclet(ie));
+    [ A_SUPG ] = C_A_SUPG_2D( BJ, w_2D, pphys_2D, Grad, nln, Dati);
 
     % Assembly phase for stiffness matrix
     A( iglo, iglo ) = A( iglo, iglo ) + Dati.mu * A_diff + ...
