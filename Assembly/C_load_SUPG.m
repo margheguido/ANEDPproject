@@ -5,9 +5,10 @@ invB = inv( BJ( :, :, 1 ) );
 load = zeros( nln, 1 );
 x = pphys_2D( :, 1 );
 y = pphys_2D( :, 2 );
-F = eval( Dati.force );
 b1_phys = eval( Dati.b1 );
 b2_phys = eval( Dati.b2 );
+F = eval( Dati.force );
+
 b_phys = [ b1_phys, b2_phys ];    % i = nodo, j = direzione
 
 for i = 1 : nln

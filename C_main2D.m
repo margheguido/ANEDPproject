@@ -7,8 +7,6 @@ function [errors,solutions,femregion,Dati,Peclet]=C_main2D(TestName,nRef,Stab,mu
 %    INPUT:
 %          Dati        : (struct)  see C_dati.m
 %          nRef        : (int)     refinement level
-%          Stab        : (0-1)     stabilization
-%          mu          : (real)    diffusion coefficient
 %
 %    OUTPUT:
 %          errors      : (struct) contains the computed errors
@@ -38,7 +36,7 @@ addpath Postprocessing
 
 Dati = C_dati(TestName,Stab);
 Dati.nRefinement = nRef;
-Dati.mu = mu;
+Dati.mu=mu;
 
 %==========================================================================
 % MESH GENERATION

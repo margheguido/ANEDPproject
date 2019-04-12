@@ -5,8 +5,9 @@ load = zeros( nln, 1 );
 x = pphys_2D( :, 1 );
 y = pphys_2D( :, 2 );
 
-
-F = eval(Dati.force );
+b1_phys = eval( Dati.b1 );
+b2_phys = eval( Dati.b2 );
+F = eval(Dati.force);
 
 for i = 1 : nln
     for q = 1 : length(w_2D)
