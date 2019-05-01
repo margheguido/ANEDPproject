@@ -1,4 +1,4 @@
-function [errors,solutions,femregion,Dati,Peclet]=C_main2D(TestName,nRef,Stab,mu)
+function [errors,solutions,femregion,Dati,Peclet,tau]=C_main2D(TestName,nRef,Stab,mu)
 %==========================================================================
 % Solution of the Poisson's problem with linear finite elements
 % (non homogeneous Dirichlet boundary conditions)
@@ -54,7 +54,7 @@ Dati.mu=mu;
 % BUILD FINITE ELEMENT MATRICES and RIGHT-HAND SIDE
 %==========================================================================
 
-[A_no_bc,b_no_bc,Peclet] = C_matrix2D(Dati,femregion);
+[A_no_bc,b_no_bc,Peclet,tau] = C_matrix2D(Dati,femregion);
 
 %==========================================================================
 % COMPUTE BOUNDARY CONDITIONS -- MODIFICATION OF A an b

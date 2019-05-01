@@ -1,4 +1,4 @@
-function [A,f,Peclet]=C_matrix2D(Dati,femregion)
+function [A,f,Peclet,tau_SUPG]=C_matrix2D(Dati,femregion)
 %% [A,f] = C_matrix2D(Dati,femregion)
 %==========================================================================
 % Assembly of the stiffness matrix A and rhs f
