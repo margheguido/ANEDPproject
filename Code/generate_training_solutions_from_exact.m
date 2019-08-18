@@ -5,7 +5,7 @@ SUPG_ANN_dataset = fopen( 'SUPG.txt', 'w' );
 
 % Print headers
 fprintf( SUPG_ANN_dataset, 'mu          \t' );
-n_dofs = 9;         % n_dofs = 9 --> nRef = 1, n_dofs = 25 --> nRef = 2, n_dofs = 81 --> nRef = 3, ...
+n_dofs = 25;         % n_dofs = 9 --> nRef = 1, n_dofs = 25 --> nRef = 2, n_dofs = 81 --> nRef = 3, ...
 for i = 1 : n_dofs
     fprintf( SUPG_ANN_dataset, 'dof_%1.0f        \t', i );
 end
@@ -18,7 +18,8 @@ for mu = 1 : -1e-1 : 0.1 % 0.5 * 1e-5 : 1e-6 : 1.5 * 1e-5
 %     n_dofs = femregion.ndof;
 
     % Exact solution
-    exact_solution = '-atan(((x-0.5).^2+(y-0.5).^2-1/16)./(sqrt(mu)))';
+%     exact_solution = '-atan(((x-0.5).^2+(y-0.5).^2-1/16)./(sqrt(mu)))';  % Test2, tipo panettone
+    exact_solution = 'sin(2*pi*x).*(y-y.^2)';                            % Test3, due gobbe (GuidoVidulisADRExactSol)
     
     % Compute sampling points (mesh vertexes)
     h = 1 / ( sqrt( n_dofs ) - 1 );
